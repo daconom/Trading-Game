@@ -56,7 +56,7 @@ The features used are
 
 Note that ideally, we would have preferred longer data horizons and even more variables, but we have limited access to data (i.e. the Factset excel add-in is only available for Microsoft devices). Most importantly, we decided against a conventional split in a training and testing dataset (*shame on us*).
 
-After training the random forest on predicting the returns, we built portfolios using our adjusted optimisation method from week 1.
+After training the random forest and predicting the returns, we built portfolios using our adjusted optimisation method from week 1.
 
  
 
