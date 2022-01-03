@@ -33,7 +33,8 @@ s.t    0.85 <= sum w_i <= 1
 ```
 
 ### Week 2
-In week 2, we based our portfolio on a momentum strategy. In particular, we invested 85% of our funds in stocks that increased in the last 6 months. We also decided to employ a strategy based on mean reversal for the remaining 15% and invested in stocks that decreased in the last month. 
+In week 2, we decided to put 85% of our capital in a momentum and the remaining 15% in a reversal portfolio. For construction of the momentum portfolio, we first calculated the 3 month momentum. We then sorted the stocks by momentum and selected the top 30%. We then selected the weights to be proportional to the momentum increase (i.e. stocks with a higher momentum also had a higher portfolio weight). For the mean reversal strategy, we selected
+the stocks that decreased the most in the last trading month. If stocks were eligible for both strategies, the weights were added up.
 
 ### Week 3
 We decided to base our strategy on Kaczmarek and Perez (2021). They use a random forest to predict returns and then build Markowitz portfolios based on these predicted returns. Essentially, the forest preselects the stocks of the portfolio. They show that portfolios using these techniques outperform conventional portfolios based historic returns. 
@@ -58,7 +59,18 @@ Note that ideally, we would have preferred longer data horizons and even more va
 
 After training the random forest and predicting the returns, we built portfolios using our adjusted optimisation method from week 1.
 
- 
+As a by-product of our approach, we can obtain the [Gini importance](mljar.com/blog/feature-importance-in-random-forest/) of the explanatory variables. The
+measure describes how much of the variance of stock X was explained by each feature. Figure 1 is a boxplot
+of the feature importance. Turnover, as a measure for liquidity risk, momentum (1 month and one day), as
+well as the twitter uncertainty index seem to be relatively important for the prediction of the stock return.
+
+![plot](./ft_importance.png)
+
+### Week 4
+We decided to merely rebalance our portfolio weights using new data. 
+
+### Week 5 
+We added the Almihud illiquidity to our approach from week 3.
 
 
 	
